@@ -124,51 +124,12 @@ class HBNBCommand(cmd.Cmd):
             on the class name and id.
                 Ex: $ show BaseModel 1234-1234-1234
             """)
-    
-    def do_show(self, arg):
-        """
-        Prints the string representation of an instance based
-        on the class name and id.
-        Ex: $ BaseModel.show(1234-1234-1234)
-        """
-        arg_list = HBNBCommand.parse(arg)
-        objdict = storage.all()
-
-        if len(arg_list) == 0:
-            print("** class name missing **")
-            return False
-
-        class_name = arg_list[0]
 
         if class_name not in HBNBCommand.__class_lst:
             print("** class doesn't exist **")
             return False
 
-        if len(arg_list) == 1:
-            print("** instance id missing **")
-            return False
 
-        if len(arg_list) > 2:
-            print("** too many arguments **")
-            return False
-
-        instance_id = arg_list[1]
-        instance_key = f"{class_name}.{instance_id}"
-
-        if instance_key in objdict:
-            instance = objdict[instance_key]
-            print(instance)
-        else:
-            print("** no instance found **")
-
-    def help_show(self):
-        """
-        Prints Help for the show function
-        """
-        print("""Prints the string representation of an instance based
-            on the class name and id.
-            Ex: $ BaseModel.show(1234-1234-1234)
-        """)
 
 
     def do_destroy(self, arg):
