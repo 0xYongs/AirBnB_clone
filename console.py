@@ -76,7 +76,7 @@ class HBNBCommand(cmd.Cmd):
             return False
 
         if len(arg_lst) > 1:
-            print("** too many arguments **")
+            print("** to many arguments **")
             return False
 
         if (arg_lst[0] in HBNBCommand.__class_lst.keys()):
@@ -90,7 +90,7 @@ class HBNBCommand(cmd.Cmd):
         """
             prints Help info for the create function
         """
-        print("""Creates a new instance of the first argument
+        print("""Creats a new instance of the first argument
               stores it in the JSON file and prints its id""")
 
     def do_show(self, arg):
@@ -118,19 +118,12 @@ class HBNBCommand(cmd.Cmd):
 
     def help_show(self):
         """
-            Prints Help for the create function
+            Prints Help for for the creat function
         """
         print("""Prints the string representation of an instance based
             on the class name and id.
                 Ex: $ show BaseModel 1234-1234-1234
             """)
-
-        if class_name not in HBNBCommand.__class_lst:
-            print("** class doesn't exist **")
-            return False
-
-
-
 
     def do_destroy(self, arg):
         """
